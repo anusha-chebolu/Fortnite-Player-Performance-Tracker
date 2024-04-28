@@ -87,7 +87,7 @@ if session_state.logged_in:
         cursor.close()
         return result
 
-    player_ids_query = "SELECT DISTINCT player_id FROM SoloStats"
+    player_ids_query = "SELECT DISTINCT player_id FROM Players"
     player_ids_result = execute_query(player_ids_query)
     player_ids = [player_id[0] for player_id in player_ids_result]
 
