@@ -4,10 +4,10 @@ import os
 
 # Connect to MySQL
 conn = mysql.connector.connect(
-    host="127.0.0.1",
-    user="root",
-    password="root",
-    database="adt_project_naman"
+    host="sh4ob67ph9l80v61.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    user="udq91g1s9azjkmg4",
+    password="nd3x0izhjouy74x0",
+    database="lg6w0pwczcwa1hnj"
 )
 st.title("Manage Players")
 
