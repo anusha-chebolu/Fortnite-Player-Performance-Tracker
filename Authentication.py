@@ -152,7 +152,7 @@ if session_state.logged_in:
 
     if solo:
         ph_solo.empty()
-        player_wl_query = "SELECT top1, (matches_count-top1) as loss FROM solostats where player_id = %s"
+        player_wl_query = "SELECT top1, (matches_count-top1) as loss FROM SoloStats where player_id = %s"
         player_wl_result = execute_query(player_wl_query, (selected_player_id,))
         df = pd.DataFrame({"WL":['Wins', 'Losses'], "Count": [player_wl_result[0][0], player_wl_result[0][1]]})
         fig = px.pie(df, values='Count', names='WL', title="Solo W/L ratio")
@@ -161,7 +161,7 @@ if session_state.logged_in:
 
     if duo:
         ph_duo.empty()
-        player_wl_query = "SELECT top1, (matches_count-top1) as loss FROM duosstats where player_id = %s"
+        player_wl_query = "SELECT top1, (matches_count-top1) as loss FROM DuosStats where player_id = %s"
         player_wl_result = execute_query(player_wl_query, (selected_player_id,))
         df = pd.DataFrame({"WL":['Wins', 'Losses'], "Count": [player_wl_result[0][0], player_wl_result[0][1]]})
         fig = px.pie(df, values='Count', names='WL', title="Duos W/L ratio")
@@ -188,7 +188,7 @@ if session_state.logged_in:
     
     if ltm:
         ph_ltm.empty()
-        player_wl_query = "SELECT top1, (matches_count-top1) as loss FROM ltmstats where player_id = %s"
+        player_wl_query = "SELECT top1, (matches_count-top1) as loss FROM LTMStats where player_id = %s"
         player_wl_result = execute_query(player_wl_query, (selected_player_id,))
         df = pd.DataFrame({"WL":['Wins', 'Losses'], "Count": [player_wl_result[0][0], player_wl_result[0][1]]})
         fig = px.pie(df, values='Count', names='WL', title="LTM W/L ratio")
