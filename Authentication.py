@@ -170,7 +170,7 @@ if session_state.logged_in:
     
     if trio:
         ph_trio.empty()
-        player_wl_query = "SELECT top1, (matches_count-top1) as loss FROM triosstats where player_id = %s"
+        player_wl_query = "SELECT top1, (matches_count-top1) as loss FROM TriosStats where player_id = %s"
         player_wl_result = execute_query(player_wl_query, (selected_player_id,))
         df = pd.DataFrame({"WL":['Wins', 'Losses'], "Count": [player_wl_result[0][0], player_wl_result[0][1]]})
         fig = px.pie(df, values='Count', names='WL', title="Trios W/L ratio")
@@ -179,7 +179,7 @@ if session_state.logged_in:
             
     if squad:
         ph_squad.empty()
-        player_wl_query = "SELECT top1, (matches_count-top1) as loss FROM squadsstats where player_id = %s"
+        player_wl_query = "SELECT top1, (matches_count-top1) as loss FROM SquadsStats where player_id = %s"
         player_wl_result = execute_query(player_wl_query, (selected_player_id,))
         df = pd.DataFrame({"WL":['Wins', 'Losses'], "Count": [player_wl_result[0][0], player_wl_result[0][1]]})
         fig = px.pie(df, values='Count', names='WL', title="Squads W/L ratio")
